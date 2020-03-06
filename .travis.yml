@@ -19,11 +19,11 @@ addons:
 
 env:
   - MODULES=Client
-  #- MODULES=Server
-  #- MODULES=Core
-  #- MODULES=External
-  #- MODULES=Integration-Test
-  #- MODULES=Check-Updated-License-Files
+  - MODULES=Server
+  - MODULES=Core
+  - MODULES=External
+  - MODULES=Integration-Test
+  - MODULES=Check-Updated-License-Files
 
 dist: trusty
 sudo: required
@@ -35,7 +35,7 @@ before_cache:
 language: java
 jdk:
   - oraclejdk8
-  #- openjdk11
+  - openjdk11
   
 matrix:
   include:
