@@ -15,7 +15,9 @@ echo "Python version :  " `python -V 2>&1`
 echo "Python3 version :  " `python3 -V 2>&1`
 echo "Pip version :  " `pip --version 2>&1`
 echo "Pip3 version :  " `pip3 --version 2>&1`
-
+echo "Pip location :  " `which pip`
+echo "Pip3 location :  " `which pip3`
+echo "Pip2 location :  " `which pip2`
 
 echo "Maven version  :  " `mvn -v`
 
