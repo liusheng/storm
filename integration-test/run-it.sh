@@ -36,11 +36,14 @@ then
   chmod o+rx /home/travis
 fi
 list_storm_processes || true
-# increasing swap space so we can run lots of workers
-sudo dd if=/dev/zero of=/swapfile.img bs=4096 count=1M
-sudo mkswap /swapfile.img
-sudo swapon /swapfile.img
-
+# Because Travis ARM LXD container disk is limitted at 18 GB
+# https://changelog.travis-ci.com/xenial-and-cache-support-added-for-arm-builds-123563
+if [ "$(uname -m)" != aarch64 ]; then
+  # increasing swap space so we can run lots of workers
+  sudo dd if=/dev/zero of=/swapfile.img bs=4096 count=1M
+  sudo mkswap /swapfile.img
+  sudo swapon /swapfile.img
+fi
 if [[ "${USER}" == "vagrant" ]]; then # install oracle jdk8 or openjdk11
     sudo apt-get update
     sudo apt-get -y install python-software-properties
