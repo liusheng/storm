@@ -11,6 +11,7 @@
 #  limitations under the License.
 arch:
   - amd64
+  - arm64
 
 addons:
   hosts:
@@ -40,10 +41,10 @@ matrix:
   include:
     - arch: s390x
       jdk: openjdk11
-    - {}
-      arch: arm64
-      jdk: openjdk11
-      
+  exclude:
+    - arch: arm64
+      jdk: oraclejdk8
+
 before_install:
   - rvm reload
   - rvm use 2.4.2 --install
