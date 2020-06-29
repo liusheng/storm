@@ -16,7 +16,7 @@ echo "Ruby version   :  " `ruby -v`
 echo "NodeJs version :  " `node -v`
 echo "Maven version  :  " `mvn -v`
 
-set -x
+set -e
 
 STORM_SRC_ROOT_DIR=$1
 
