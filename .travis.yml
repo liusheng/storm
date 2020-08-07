@@ -14,7 +14,6 @@ addons:
     - node1
 
 arch:
-  - amd64
   - arm64-graviton2
 
 env:
@@ -34,13 +33,15 @@ before_cache:
 
 language: java
 jdk:
-  - oraclejdk8
+#  - oraclejdk8
   - openjdk11
-  
-matrix:
-  include:
-    - arch: s390x
-      jdk: openjdk11
+
+#matrix:
+#  include:
+#    - arch: s390x
+#      jdk: openjdk11
+#    - arch: arm64
+#      jdk: openjdk11
 
 before_install:
   - rvm reload
