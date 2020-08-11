@@ -45,7 +45,7 @@ jdk:
 
 before_install:
   - rvm reload
-  - rvm use 2.4.2 --install
+  - travis_wait 30 rvm use 2.4.2 --install
   - nvm install 8.9.3
   - nvm use 8.9.3
   - sudo apt-get update
@@ -61,7 +61,7 @@ before_install:
 
 install: /bin/bash ./dev-tools/travis/travis-install.sh `pwd`
 script:
-  - if [[ $(uname -m) != 's390x' ]]; then 
+  - if [[ $(uname -m) != 's390x' ]]; then
       /bin/bash ./dev-tools/travis/travis-script.sh `pwd` $MODULES;
     fi
 cache:
