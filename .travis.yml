@@ -13,16 +13,16 @@ addons:
   hosts:
     - node1
 
-arch:
-  - arm64-graviton2
-
-env:
-  - MODULES=Client
-  - MODULES=Server
-  - MODULES=Core
-  - MODULES=External
-  - MODULES=Integration-Test
-  - MODULES=Check-Updated-License-Files
+#arch:
+#  - amd64
+#
+#env:
+#  - MODULES=Client
+#  - MODULES=Server
+#  - MODULES=Core
+#  - MODULES=External
+#  - MODULES=Integration-Test
+#  - MODULES=Check-Updated-License-Files
 
 dist: trusty
 sudo: required
@@ -31,10 +31,10 @@ before_cache:
 # Never upload Storm artifacts to the build cache, ensuring a clean slate every time
   - rm -rf $HOME/.m2/repository/org/apache/storm
 
-language: java
-jdk:
-#  - oraclejdk8
-  - openjdk11
+#language: java
+#jdk:
+##  - oraclejdk8
+#  - openjdk11
 
 #matrix:
 #  include:
@@ -42,6 +42,22 @@ jdk:
 #      jdk: openjdk11
 #    - arch: arm64
 #      jdk: openjdk11
+jobs:
+  include:
+    - dist: focal
+      group: edge
+      arch: arm64-graviton2
+      language: java
+      jdk: openjdk8
+      virt: vm
+      env: MODULES=Client
+    - dist: focal
+      group: edge
+      arch: arm64-graviton2
+      language: java
+      jdk: openjdk8
+      virt: vm
+      env: MODULES=Server
 
 before_install:
   - rvm reload
