@@ -44,14 +44,14 @@ before_cache:
 #      jdk: openjdk11
 jobs:
   include:
-    - dist: focal
+    - dist: trusty
       group: edge
       arch: arm64-graviton2
       language: java
       jdk: openjdk8
       virt: vm
       env: MODULES=Client
-    - dist: focal
+    - dist: trusty
       group: edge
       arch: arm64-graviton2
       language: java
