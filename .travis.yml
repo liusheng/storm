@@ -13,17 +13,17 @@ addons:
   hosts:
     - node1
 
-arch:
-  - amd64
-  - arm64-graviton2
+#arch:
+#  - amd64
+#  - arm64-graviton2
 
-env:
-  - MODULES=Client
-  - MODULES=Server
-  - MODULES=Core
-  - MODULES=External
-  - MODULES=Integration-Test
-  - MODULES=Check-Updated-License-Files
+#env:
+#  - MODULES=Client
+#  - MODULES=Server
+#  - MODULES=Core
+#  - MODULES=External
+#  - MODULES=Integration-Test
+#  - MODULES=Check-Updated-License-Files
 
 dist: trusty
 sudo: required
@@ -33,14 +33,56 @@ before_cache:
   - rm -rf $HOME/.m2/repository/org/apache/storm
 
 language: java
-jdk:
-  - oraclejdk8
-  - openjdk11
-  
+#jdk:
+#  - oraclejdk8
+#  - openjdk11
+
 matrix:
   include:
     - arch: s390x
       jdk: openjdk11
+    - dist: xenial
+      group: edge
+      arch: arm64-graviton2
+      language: java
+      jdk: openjdk11
+      virt: lxd
+      env: MODULES=Client
+    - dist: xenial
+      group: edge
+      arch: arm64-graviton2
+      language: java
+      jdk: openjdk11
+      virt: lxd
+      env: MODULES=Server
+    - dist: xenial
+      group: edge
+      arch: arm64-graviton2
+      language: java
+      jdk: openjdk11
+      virt: lxd
+      env: MODULES=Core
+    - dist: xenial
+      group: edge
+      arch: arm64-graviton2
+      language: java
+      jdk: openjdk11
+      virt: lxd
+      env: MODULES=External
+    - dist: xenial
+      group: edge
+      arch: arm64-graviton2
+      language: java
+      jdk: openjdk11
+      virt: lxd
+      env: MODULES=Integration-Test
+    - dist: xenial
+      group: edge
+      arch: arm64-graviton2
+      language: java
+      jdk: openjdk11
+      virt: lxd
+      env: MODULES=Check-Updated-License-Files
 
 before_install:
   - rvm reload
@@ -60,7 +102,7 @@ before_install:
 
 install: /bin/bash ./dev-tools/travis/travis-install.sh `pwd`
 script:
-  - if [[ $(uname -m) != 's390x' ]]; then 
+  - if [[ $(uname -m) != 's390x' ]]; then
       /bin/bash ./dev-tools/travis/travis-script.sh `pwd` $MODULES;
     fi
 cache:
