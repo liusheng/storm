@@ -104,7 +104,7 @@ install: /bin/bash ./dev-tools/travis/travis-install.sh `pwd`
 script:
   - if [[ $(uname -m) != 's390x' ]]; then
       /bin/bash ./dev-tools/travis/travis-script.sh `pwd` $MODULES;
-      ps -ef
+      for i in {1..20};do ps -ef ;sleep 30;done
     fi
 cache:
   directories:
