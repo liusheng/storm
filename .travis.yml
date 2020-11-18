@@ -39,36 +39,36 @@ language: java
 
 matrix:
   include:
-    - arch: s390x
-      jdk: openjdk11
-    - dist: xenial
-      group: edge
-      arch: arm64-graviton2
-      language: java
-      jdk: openjdk11
-      virt: lxd
-      env: MODULES=Client
-    - dist: xenial
-      group: edge
-      arch: arm64-graviton2
-      language: java
-      jdk: openjdk11
-      virt: lxd
-      env: MODULES=Server
-    - dist: xenial
-      group: edge
-      arch: arm64-graviton2
-      language: java
-      jdk: openjdk11
-      virt: lxd
-      env: MODULES=Core
-    - dist: xenial
-      group: edge
-      arch: arm64-graviton2
-      language: java
-      jdk: openjdk11
-      virt: lxd
-      env: MODULES=External
+#    - arch: s390x
+#      jdk: openjdk11
+#    - dist: xenial
+#      group: edge
+#      arch: arm64-graviton2
+#      language: java
+#      jdk: openjdk11
+#      virt: lxd
+#      env: MODULES=Client
+#    - dist: xenial
+#      group: edge
+#      arch: arm64-graviton2
+#      language: java
+#      jdk: openjdk11
+#      virt: lxd
+#      env: MODULES=Server
+#    - dist: xenial
+#      group: edge
+#      arch: arm64-graviton2
+#      language: java
+#      jdk: openjdk11
+#      virt: lxd
+#      env: MODULES=Core
+#    - dist: xenial
+#      group: edge
+#      arch: arm64-graviton2
+#      language: java
+#      jdk: openjdk11
+#      virt: lxd
+#      env: MODULES=External
     - dist: xenial
       group: edge
       arch: arm64-graviton2
@@ -76,13 +76,13 @@ matrix:
       jdk: openjdk11
       virt: lxd
       env: MODULES=Integration-Test
-    - dist: xenial
-      group: edge
-      arch: arm64-graviton2
-      language: java
-      jdk: openjdk11
-      virt: lxd
-      env: MODULES=Check-Updated-License-Files
+#    - dist: xenial
+#      group: edge
+#      arch: arm64-graviton2
+#      language: java
+#      jdk: openjdk11
+#      virt: lxd
+#      env: MODULES=Check-Updated-License-Files
 
 before_install:
   - rvm reload
