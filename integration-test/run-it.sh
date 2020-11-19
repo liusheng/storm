@@ -104,4 +104,4 @@ for i in {1..20} ; do
 done
 list_storm_processes
 mvn test -DfailIfNoTests=false -DskipTests=false -Dstorm.version=${STORM_VERSION} -Dui.url=http://localhost:8744
-pkill -9 -u storm
+sudo pkill -9 -u storm
