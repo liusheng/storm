@@ -62,4 +62,4 @@ do
   python ${TRAVIS_SCRIPT_DIR}/print-errors-from-test-reports.py "${dir}"
 done
 
-exit ${BUILD_RET_VAL}
+travis_terminate ${BUILD_RET_VAL}
