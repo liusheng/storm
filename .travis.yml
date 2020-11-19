@@ -104,7 +104,7 @@ install: /bin/bash ./dev-tools/travis/travis-install.sh `pwd`
 script:
   - if [[ $(uname -m) != "s390x" ]]; then
       travis_wait 30 ./dev-tools/travis/travis-script.sh `pwd` $MODULES;
-      pkill -9 -u travis
+      pkill -9 -u travis;
     fi
 after_success:
   - echo "CI RAN SUCESSFULLY"
