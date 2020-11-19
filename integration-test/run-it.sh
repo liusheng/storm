@@ -64,7 +64,7 @@ if [[ "${USER}" == "vagrant" ]]; then # install oracle jdk8 or openjdk11
     mvn --version
     export MAVEN_OPTS="-Xmx3000m"
 else
-    ( while true; do echo "heartbeat"; sleep 300; done ) & #heartbeat needed by travis ci
+    #( while true; do echo "heartbeat"; sleep 300; done ) & #heartbeat needed by travis ci
     if [[ "${USER}" == "travis" ]]; then
         ( cd "${STORM_SRC_DIR}/storm-dist/binary" && mvn clean package -Dgpg.skip=true )
     fi
